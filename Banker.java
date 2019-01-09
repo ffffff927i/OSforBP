@@ -5,7 +5,6 @@ import javax.swing.JButton;
 import javax.swing.JFrame;
 import javax.swing.JLabel;
 import javax.swing.JPanel;
-//import javax.swing.JTextField;
 import java.awt.event.*;
 import java.awt.Color;
 
@@ -100,76 +99,7 @@ public class Banker {
         JLabel newLabel = new JLabel("起始資源數量："+String.valueOf(StartRes));
         newLabel.setBounds(90,130,120,25);
         panel.add(newLabel);
-        
-        /*
-         
-        JTextField userText = new JTextField(20);
-        userText.setBounds(130,20,120,25);
-        panel.add(userText);
-        
-        JTextField passwordText = new JTextField(20);
-        passwordText.setBounds(130,50,120,25);
-        panel.add(passwordText);
-        
-        String input1 = "0";
-        String input2 = "0";
-        
-        JLabel ansLabel = new JLabel("pro="+input1+" res="+input2);
-        ansLabel.setBounds(30,80,120,25);
-        panel.add(ansLabel);
-
-        JButton reset = new JButton("設置");
-        reset.setBounds(70, 110, 200, 30);
-        reset.addActionListener(new ActionListener() {
-            public void actionPerformed(ActionEvent e) {
-                String input1 = userText.getText();
-                String input2 = passwordText.getText();
-                int newcos = Integer.parseInt(input1);
-                int newres = Integer.parseInt(input2);
-                if(newcos > 1 && newcos < 20) {
-                	  if(newres > 1 && newres < 10) {
-                		  Customer=newcos;
-                		  Resource=newres;
-                }
-                }
-                ansLabel.setText("cos="+input1+" res="+input2);
-           }
-        });
-        panel.add(reset);
-        
-        */
-        //線程數與資源數
-        /*
-        JLabel Allo = new JLabel("Allocation resources");
-        Allo.setBounds(50,160,150,30);
-        panel.add(Allo);
-        
-        JTextField AlloText= new JTextField(200);
-        AlloText.setBounds(50,190,100,100);
-        panel.add(AlloText);
-        
-        JLabel Max = new JLabel("Max resources");
-        Max.setBounds(260,160,200,30);
-        panel.add(Max);
-        
-        JTextField MaxText= new JTextField(200);
-        MaxText.setBounds(245,190,100,100);
-        panel.add(MaxText);
-        
-        JLabel Avail = new JLabel("Available resources");
-        Avail.setBounds(450,160,150,30);
-        panel.add(Avail);
-        JTextField AvailText= new JTextField(200);
-        AvailText.setBounds(450,190,100,100);
-        panel.add(AvailText);
-        
-        String TestStr1="輸出結果為"+"結果1\n"+"結果2\n"+"結果3\n";
-        String TestStr2=StrToHtml(TestStr1);
-        JLabel Safe = new JLabel(TestStr2);
-        Safe.setBounds(80,450,100,60);
-        panel.add(Safe);
-        */
-        
+                      
         JLabel need = new JLabel("該位客戶申請的資源為");
         need.setBounds(150,420,150,30);
         panel.add(need);
@@ -195,8 +125,6 @@ public class Banker {
     	
         JFrame frame = new JFrame("銀行家演算法");
         frame.setSize(1000,700);
-        //jframe.setLocation(0,0);
-        //frame.setIconImage(frame.getToolkit().getImage("banker.jpg"));
         frame.setLocationRelativeTo(null);
         frame.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
         JPanel panel = new JPanel();
@@ -204,7 +132,7 @@ public class Banker {
         placeComponents(panel);
         frame.setVisible(true);
         frame.setBackground(Color.blue);
-        //outputlabel
+
         JLabel templabel = new JLabel("目前尚未有任何成功");
         templabel.setBounds(685,380,300,30);
         panel.add(templabel);
@@ -221,10 +149,6 @@ public class Banker {
         templabel4.setBounds(430,550,400,30);
         panel.add(templabel4);
         
-      /*  JLabel templabel5 = new JLabel("資源數目："+String.valueOf(available[0]));
-        templabel5.setBounds(400,400,80,30);
-        panel.add(templabel5);
-        */
         //resetB
         JButton reset = new JButton("重置");
         reset.setBounds(450,580,100,30);
@@ -239,29 +163,7 @@ public class Banker {
            }
         });
         panel.add(reset);
-        //addResB
-        /*
-        JTextField addText = new JTextField(20);
-        addText.setBounds(150,400,80,30);
-        panel.add(addText);
-        
-        String input3 = "0";    
-        
-        JLabel addLabel = new JLabel("add="+input3);
-        addLabel.setBounds(150,430,80,30);
-        panel.add(addLabel);
 
-        JButton add = new JButton("add");
-        add.setBounds(150,460, 80, 30);
-        add.addActionListener(new ActionListener() {
-            public void actionPerformed(ActionEvent e) {
-                addLabel.setText("add="+input3);
-            	for(int i = 0; i<Resource; i++)
-                    available[i] = Integer.parseInt(input3);
-           }
-        });
-        panel.add(add);
-        */
         //main
         
         for(int i = 0; i<Resource; i++)
@@ -289,19 +191,16 @@ public class Banker {
         {
             Random rand = new Random();
             int customer_no = rand.nextInt(Customer);
-            //System.out.println(customer_no);
             templabel3.setText("coustomer:"+customer_no);
             for ( int i = 0; i < Resource; i++ )
             {
                 if(request[customer_no][i] == 0)
                     request[customer_no][i] = rand.nextInt(5);
             }
-            //System.out.println(Arrays.toString(request[customer_no]));
             templabel2.setText(Arrays.toString(request[customer_no]));
             int no = request_resource(customer_no,request);
             if (no ==0)
             {
-            //System.out.println("Allocated Customer No." + customer_no + " Resources : " + Arrays.toString(request[customer_no]));
             	templabel.setText("成功將資源: " + Arrays.toString(request[customer_no]) +"分配給客戶 No." + customer_no + "!");
                 temp=time+1;
                 time=temp;
