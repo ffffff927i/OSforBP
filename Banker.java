@@ -103,22 +103,7 @@ public class Banker {
         JLabel need = new JLabel("該位客戶申請的資源為");
         need.setBounds(150,420,150,30);
         panel.add(need);
-        
-       /*JLabel Max = new JLabel("Max resources");
-        Max.setBounds(260,160,200,30);
-        panel.add(Max);
-        
-        JTextField MaxText= new JTextField(200);
-        MaxText.setBounds(245,190,100,100);
-        panel.add(MaxText);
-        
-        JLabel Avail = new JLabel("Available resources");
-        Avail.setBounds(450,160,150,30);
-        panel.add(Avail);
-        JTextField AvailText= new JTextField(200);
-        AvailText.setBounds(450,190,100,100);
-        panel.add(AvailText);*/
-      
+             
         ImageIcon image = new ImageIcon("go.gif");
         JLabel man = new JLabel("", image, JLabel.CENTER);
         man.setBounds(350,250,300,300);
