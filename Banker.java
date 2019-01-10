@@ -10,7 +10,7 @@ import java.awt.Color;
 
 public class Banker {
     
-    public static int Customer = 5;
+    public static int Customer = 10;
     public static int Resource = 3;
     public static final int StartRes = 2;
     public static int[][] allocated = new int[Customer][Resource];
