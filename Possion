@@ -1,0 +1,32 @@
+import java.util.Random;
+
+public class Possion{
+    
+     public static void main(String[] args){
+    Random rand = new Random();
+    double a = (double) rand.nextInt(5); 
+    double x = (double) getPossionVariable( a);
+   
+}
+
+    private static int getPossionVariable(double a) {
+		int x = 0;
+		double y = Math.random(), cdf = getPossionProbability(x, a);
+		while (cdf < y) {
+			x++;
+			cdf += getPossionProbability(x, a);
+		}
+		//System.out.print(x + "\n");
+		return x;
+	}
+ 
+	private static double getPossionProbability(int k, double lamda) {
+		double c = Math.exp(-lamda), sum = 1;
+		for (int i = 1; i <= k; i++) {
+			sum *= lamda / i;
+		}
+		//System.out.print(sum*c);
+		return sum * c;}
+	
+
+}
