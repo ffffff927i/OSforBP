@@ -8,7 +8,7 @@ import javax.swing.JPanel;
 import java.awt.event.*;
 import java.awt.Color;
 
-public class Banker {
+public class banker {
     
     public static int Customer = 5;
     public static int Resource = 3;
