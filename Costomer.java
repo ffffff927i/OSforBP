@@ -1,3 +1,4 @@
+//import java.util.Arrays;
 import java.util.Random;
 
 
@@ -21,7 +22,7 @@ class Customer implements Runnable {
         int sleeptime = rand.nextInt(5) +1;
         try
         {
-            Thread.sleep(sleeptime*0);
+            Thread.sleep(sleeptime*4000);
         }
         catch (InterruptedException ioe)
         {}
